@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState} from 'react';
 import { makeStyles,fade } from '@material-ui/core/styles';
 import {AppBar,Toolbar,Typography,Button,IconButton,InputBase} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
     const classes = useStyles();
+    const [search, setSearch] = useState();
 
     return (
         <div className={classes.root}>
@@ -71,6 +73,9 @@ export default function ButtonAppBar() {
                                 input: classes.inputInput,
                             }}
                             inputProps={{ 'aria-label': 'search' }}
+                            onChange={(event) => {
+                                setSearch(event.target.value);
+                            }}
                         />
                     </div>
 
