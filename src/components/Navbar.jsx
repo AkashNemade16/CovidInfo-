@@ -4,6 +4,7 @@ import { makeStyles,fade } from '@material-ui/core/styles';
 import {AppBar,Toolbar,Typography,Button,IconButton,InputBase} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import  Menu from './Menu';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -57,7 +58,6 @@ export default function ButtonAppBar() {
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-
                     <Typography variant="h6" className={classes.title}>
                         CovidInfo
                     </Typography>
@@ -80,7 +80,7 @@ export default function ButtonAppBar() {
                     </div>
 
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon />
+                       <Menu/>
                     </IconButton>
 
                 </Toolbar>
