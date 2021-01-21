@@ -1,28 +1,32 @@
-import React,{useState,useEffect} from "react";
-import Navbar from "./components/Navbar";
-import {Switch,Route} from "react-router-dom";
+import React from "react";
+import Header from "./components/Header";
 import {fetchData} from "./Api";
+import Cards from "./components/Cards";
 
-function App() {
-    useEffect( ()=>{
-        async function FetchData(){
-            const fetchedData = await fetchData();
-            console.log(fetchedData);
-        }
-       FetchData();
+class App extends React.Component{
+    state={
+        data:{},
+    }
 
-    },[]);
+    async componentDidMount(){
+        const fetcheddata = await fetchData();
+        this.setState({data:fetcheddata});
+    }
+    render(){
+        const {data} = this.state
+        return (
+            <div className='App'>
+                <Header/>
+                <Cards data={data}/>
+            </div>
 
 
-  return (
-       <div>
-           <Switch>
-               <Route exact path ='/' component={Navbar}/>
-           </Switch>
-       </div>
+        );
+    }
 
 
-  );
+
+
 }
 
 export default App;
