@@ -6,12 +6,14 @@ import {fetchData} from "./Api";
 function App() {
     useEffect( ()=>{
         async function FetchData(){
-            const data = await fetchData();
-            console.log(data);
+            const fetchedData = await fetchData();
+            console.log(fetchedData);
         }
        FetchData();
 
     },[]);
+
+
   return (
        <div>
            <Switch>
