@@ -4,6 +4,7 @@ import {fetchData} from "./Api";
 import Cards from "./components/cards/Cards";
 import Chart from "./components/Charts/charts";
 import CountryPicker from "./components/CountryPicker/CountryPicker";
+import {Grid} from '@material-ui/core'
 
 class App extends React.Component{
     state={
@@ -25,11 +26,21 @@ class App extends React.Component{
         const {data, country} = this.state
         return (
             <div className='App'>
-                <Header/>
-                <CountryPicker changeCountry={this.changeCountry} />
-                <Cards data={data}/>
-                <Chart data={data} country={country}/>
+                <Grid container direction='column' spacing={6}  alignContent='stretch'  justify="center" >
+                    <Grid item >
+                        <Header/>
+                    </Grid>
+                    <Grid item>
+                        <CountryPicker changeCountry={this.changeCountry} />
+                    </Grid>
+                    <Grid item>
+                        <Cards data={data}/>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Chart data={data} country={country}/>
+                    </Grid>
 
+                </Grid>
             </div>
 
 
