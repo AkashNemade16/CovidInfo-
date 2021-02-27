@@ -26,17 +26,17 @@ class App extends React.Component{
         const {data, country} = this.state
         return (
             <div className='App'>
-                <Grid container direction='column' spacing={6}  alignContent='stretch'  justify="center" >
-                    <Grid item >
+                <Grid container direction='column' spacing={6}   justify="center" >
+                    <Grid item xs='auto'>
                         <Header/>
                     </Grid>
-                    <Grid item>
+                    <Grid item xs='auto'>
                         <CountryPicker changeCountry={this.changeCountry} />
                     </Grid>
                     <Grid item>
                         <Cards data={data}/>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs='auto'>
                         <Chart data={data} country={country}/>
                     </Grid>
 
